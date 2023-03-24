@@ -9,8 +9,8 @@ import "./Popup.css";
 import { PhotoType } from "./types";
 
 function App() {
-  const [data, setData] = useState([]);
-  const tableRef = useRef(null);
+  const [data, setData] = useState<PhotoType[]>([]);
+  // const tableRef = useRef(null);
 
 
   // const convertToExcel = () => {
@@ -36,8 +36,8 @@ function App() {
       console.log("local storage", items);
       if (items["photo-data"] === undefined) return;
       const localData = items["photo-data"].payload.data;
-      if (!data) return;
-      setData(items["photo-data"].payload.data);
+      if (!localData) return;
+      setData(prevData => [...prevData, ...localData]);
     });
   }, []);
 
