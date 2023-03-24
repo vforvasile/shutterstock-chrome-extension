@@ -1,3 +1,15 @@
-console.info('chrome-ext template-react-ts background script')
+// console.info('chrome-ext template-react-ts background script')
 
-export {}
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log('background script received message', request, sender);
+      chrome.storage.local.set({'photo-data': request}, function() {
+        console.log('Photos saved');
+      });
+    sendResponse(request);
+      return true;
+    
+  });
+
+export { };
+

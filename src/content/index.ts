@@ -1,3 +1,18 @@
-console.info('chrome-ext template-react-ts content script')
+import { parseImageData } from "../popup/utils";
 
-export {}
+const parsedData = parseImageData();
+
+// Communicate with background file by sending a message
+
+(async () => {
+  const response = await chrome.runtime.sendMessage({
+    payload: {
+      message: "Data from Web page",
+      data: parsedData,
+    },
+  });
+  // do something with response here, not outside the function
+  console.log("RES", response);
+})();
+
+export {};

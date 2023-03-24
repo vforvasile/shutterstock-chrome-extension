@@ -22,7 +22,11 @@ export default defineManifest({
   },
   content_scripts: [
     {
-      matches: ['http://*/*', 'https://*/*'],
+      matches: [
+        "<all_urls>"
+      ],
+      all_frames: true,
+      run_at: 'document_idle',
       js: ['src/content/index.ts'],
     },
   ],
@@ -32,5 +36,13 @@ export default defineManifest({
       matches: [],
     },
   ],
-  permissions: [],
+  permissions: [
+  "activeTab",
+  "storage",
+  "unlimitedStorage",
+  "tabs"]
+//   host_permissions: [
+//     "https://medium.com/p/*"
+// ],
 })
+
