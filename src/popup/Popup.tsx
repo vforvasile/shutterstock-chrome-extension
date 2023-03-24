@@ -3,12 +3,33 @@ import {
   DownloadTableExcel,
   useDownloadExcel,
 } from "react-export-table-to-excel";
+ // @ts-ignore
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import "./Popup.css";
 import { PhotoType } from "./types";
 
 function App() {
   const [data, setData] = useState([]);
   const tableRef = useRef(null);
+
+
+  // const convertToExcel = () => {
+  //   //@ts-ignore
+  //   ReactHTMLTableToExcel.format = (s, c) => {
+  //     if (c && c['table']) {
+  //       const html = c.table;
+  //       const parser = new DOMParser();
+  //       const doc = parser.parseFromString(html, 'text/html');
+  //       const rows = doc.querySelectorAll('tr');
+  //       // @ts-ignore
+  //       for (const row of rows) row.removeChild(row.firstChild);
+  //       // @ts-ignore
+  //       c.table = doc.querySelector('table').outerHTML;
+  //     }
+  //   //@ts-ignore
+  //     return s.replace(/{(\w+)}/g, (m, p) => c[p]);
+  //   };
+  // }
 
   useEffect(() => {
     chrome.storage.local.get("photo-data", function (items) {
@@ -35,16 +56,15 @@ function App() {
 
 
       <div>
-      <DownloadTableExcel
-                    filename="users table"
-                    sheet="users"
-                    currentTableRef={tableRef.current}
-                >
-
-                   <button> Export excel </button>
-
-                </DownloadTableExcel>
-          <table ref={tableRef}>
+      <ReactHTMLTableToExcel
+        id="test-table-xls-button"
+        className="download-table-xls-button"
+        table="table-to-xls"
+        filename="test"
+        sheet="tablexls"
+        buttonText="Download as XLS"
+      />
+      <table id="table-to-xls">
             <tr>
               <th>Photo</th>
               <th>Thumb</th>
@@ -67,7 +87,6 @@ function App() {
               </>
             ))}
           </table>
-
       </div>
     </main>
   );

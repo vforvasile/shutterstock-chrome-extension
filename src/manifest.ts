@@ -1,9 +1,9 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
 export default defineManifest({
-  name: 'create-chrome-ext',
-  description: '',
-  version: '0.0.0',
+  name: 'ShutterStock Image Data',
+  description: 'Extracts labels from photo data for analytics purpose ',
+  version: '0.0.1',
   manifest_version: 3,
   icons: {
     '16': 'img/logo-16.png',
@@ -25,6 +25,7 @@ export default defineManifest({
       matches: [
         "<all_urls>"
       ],
+      // matches: ['https://www.shutterstock.com/*'],
       all_frames: true,
       run_at: 'document_idle',
       js: ['src/content/index.ts'],

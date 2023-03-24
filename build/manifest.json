@@ -1,7 +1,7 @@
 {
-  "name": "create-chrome-ext",
-  "description": "",
-  "version": "0.0.0",
+  "name": "ShutterStock Image Data",
+  "description": "Extracts labels from photo data for analytics purpose ",
+  "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
     "16": "img/logo-16.png",
