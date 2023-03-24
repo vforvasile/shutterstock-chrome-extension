@@ -23,7 +23,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-export-table-to-excel": "^1.0.6"
+    "react-export-table-to-excel": "^1.0.6",
+    "react-html-table-to-excel": "^2.0.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.224",

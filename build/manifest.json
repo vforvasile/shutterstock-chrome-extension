@@ -21,7 +21,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content-script-loader.chunk-81092ba5.d6abf004.js"
+        "assets/content-script-loader.chunk-760fd7ad.217db6ad.js"
       ],
       "matches": [
         "<all_urls>"
@@ -46,7 +46,7 @@
         "<all_urls>"
       ],
       "resources": [
-        "assets/chunk-81092ba5.js"
+        "assets/chunk-760fd7ad.js"
       ],
       "use_dynamic_url": true
     }

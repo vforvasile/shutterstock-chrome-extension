@@ -1,9 +1,10 @@
-import  {  useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   DownloadTableExcel,
   useDownloadExcel,
 } from "react-export-table-to-excel";
 import "./Popup.css";
+import { PhotoType } from "./types";
 
 function App() {
   const [data, setData] = useState([]);
@@ -14,50 +15,59 @@ function App() {
       console.log("local storage", items);
       if (items["photo-data"] === undefined) return;
       const localData = items["photo-data"].payload.data;
-      if(!data)return
+      if (!data) return;
       setData(items["photo-data"].payload.data);
     });
   }, []);
 
   console.log("state data, ", data);
 
-  const { onDownload } = useDownloadExcel({
-    currentTableRef: tableRef.current,
-    filename: "Users table",
-    sheet: "Users",
-  });
+  // const { onDownload } = useDownloadExcel({
+  //   currentTableRef: tableRef?.current,
+  //   filename: "Users table",
+  //   sheet: "Users",
+  // });
+
+  if (!data.length) return null;
 
   return (
     <main>
-      <button onClick={onDownload}> Export excel </button>
+
 
       <div>
-        <DownloadTableExcel
-          filename="users table"
-          sheet="users"
-          currentTableRef={tableRef.current}
-        >
+      <DownloadTableExcel
+                    filename="users table"
+                    sheet="users"
+                    currentTableRef={tableRef.current}
+                >
 
-        <table ref={tableRef}>
-          <tbody>
+                   <button> Export excel </button>
+
+                </DownloadTableExcel>
+          <table ref={tableRef}>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Age</th>
+              <th>Photo</th>
+              <th>Thumb</th>
+              <th>Label</th>
+              <th>Percentage</th>
             </tr>
-            <tr>
-              <td>Edison</td>
-              <td>Padilla</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Alberto</td>
-              <td>Lopez</td>
-              <td>94</td>
-            </tr>
-          </tbody>
-        </table>
-        </DownloadTableExcel>
+            {data.map((photo: PhotoType) => (
+              <>
+                <tr>
+                  <td rowSpan={photo.labels.length+1}>{photo.id}</td>
+                  <td rowSpan={photo.labels.length+1}>{photo.image}</td>
+                </tr>
+
+                {photo.labels.map((label) => (
+                  <tr>
+                    <td>{label.name}</td>
+                    <td>{label.percentage}</td>
+                  </tr>
+                ))}
+              </>
+            ))}
+          </table>
+
       </div>
     </main>
   );
