@@ -60,7 +60,7 @@ function App() {
         id="test-table-xls-button"
         className="download-table-xls-button"
         table="table-to-xls"
-        filename="test"
+        filename="PhotoData"
         sheet="tablexls"
         buttonText="Download as XLS"
       />

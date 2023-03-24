@@ -36,3 +36,6 @@ a {
     max-width: none;
   }
 }
+table, th, td {
+  border: 0.3px solid;
+}

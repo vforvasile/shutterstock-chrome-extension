@@ -22,6 +22,7 @@ export default defineManifest({
   },
   content_scripts: [
     {
+      // matches: ["*://shutterstock.com/*"],
       matches: [
         "<all_urls>"
       ],
