@@ -3,6 +3,8 @@
 
 Chrome Extension to extract Shutterstock photo labels and their percentage from your Profile & export to XLS.
 
+Built on top of [create-chrome-ext](https://github.com/guocaoyi/create-chrome-ext)
+
 
 ### Installation 
 
@@ -34,7 +36,6 @@ Chrome Extension to extract Shutterstock photo labels and their percentage from 
 ### Add to Chrome
 
 
-
 <details>
 
  <summary>Details</summary>
@@ -44,8 +45,10 @@ Chrome Extension to extract Shutterstock photo labels and their percentage from 
 
 <img width="943" alt="Screenshot 2023-04-06 at 17 53 16" src="https://user-images.githubusercontent.com/9382283/230420530-e4a1861e-0f14-4a35-b96f-2f743dc234ac.png">
 
-- Click Load Unpacked
+- Click **Load Unpacked**
 - Select **Build** folder
+- Open [https://submit.shutterstock.com/earnings/top-performers](https://submit.shutterstock.com/earnings/top-performers)
+- Click on the extension icon
 
 </details>
 
