@@ -3,7 +3,7 @@ import { defineManifest } from '@crxjs/vite-plugin'
 export default defineManifest({
   name: 'ShutterStock Image Data',
   description: 'Extracts labels from photo data for analytics purpose ',
-  version: '0.0.1',
+  version: '0.0.4',
   manifest_version: 3,
   icons: {
     '16': 'img/logo-16.png',
@@ -22,11 +22,7 @@ export default defineManifest({
   },
   content_scripts: [
     {
-      // matches: ["*://shutterstock.com/*"],
-      matches: [
-        "<all_urls>"
-      ],
-      // matches: ['https://www.shutterstock.com/*'],
+      matches: ["*://shutterstock.com/*", "https://submit.shutterstock.com/*"],
       all_frames: true,
       run_at: 'document_idle',
       js: ['src/content/index.ts'],
@@ -43,8 +39,5 @@ export default defineManifest({
   "storage",
   "unlimitedStorage",
   "tabs"]
-//   host_permissions: [
-//     "https://medium.com/p/*"
-// ],
 })
 

@@ -12,7 +12,6 @@ const parsedData = parseImageData();
     },
   });
   // do something with response here, not outside the function
-  console.log("RES", response);
 })();
 
 export {};
